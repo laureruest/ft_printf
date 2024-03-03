@@ -6,11 +6,11 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 10:03:35 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/03 17:09:10 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/03 17:15:09 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//Comment & Uncomment where necessary
+//Co_mment & Uncomment where necessary
 #include <stdio.h>
 //#include "libftprintf.h"
 

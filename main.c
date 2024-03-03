@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 10:03:35 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/03 13:54:55 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/03 17:09:10 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	main(void)
 		{"Ahora imprimimos la direccion de un puntero: %p\0que deberia imprimir \
 			el puntero en hexadecimal: %p\0 y nada de esto"};
 	void	*ptr[8];
-	int	i;
-	float	f;
+	long long int	i;
+	long double	f;
 	int nreturned;
 
 	ptr[0] = (void *) 0;
@@ -72,20 +72,24 @@ int	main(void)
 	//	nreturned = ft_printf("Imprimo el puntero numero %i: %p\n", i, p[i]\
 				, i + 1, p[i + 1]);
 	}
-	for (i = -2147483648, i < 2147483648, i++)
+	for (i = −9223372036854775808, i < 9223372036854775808, i++)
 		nreturned = printf("Imprimo el entero %i\n", i);
 	//	nreturned = ft_printf("Imprimo el entero %i\n", i);
 	//	NOW WE WORKS IN DECIMAL VERY LITTLE AN VERY BIG
 	for (f = -1, f <= 1, f += 0.00001)
 		nreturned = printf("Imprimo en decimal %d\n", f);
 	//	nreturned = ft_printf("Imprimo en decimal %d", f);
-	for (f = -65536, f < 65536, f += 0.5)
+	for (f = −9223372036854775808, i < 9223372036854775808, i+= 20.77)
 		nreturned = printf("Imprimo en decimal %d\n", f);
 	//	nreturned = ft_printf("Imprimo en decimal %d", f);
 	//	NOW WE WORKS IN UNSIGNED DECIMAL, PASSING NEGATIVE VALUES
 	//	FOR VERY LITTLE AND FOR VERY BIG NUMBERS
 	for (f = -1, f <= 1, f += 0.00001)
 		nreturned = printf("Imprimo en decimal %u\n", f);
+	//	nreturned = ft_printf("Imprimo en decimal %u\n", f);
+	for (f = −9223372036854775808, i < 9223372036854775808, i+= 20.77)
+		nreturned = printf("Imprimo en decimal %u\n", f);
+	//	nreturned = ft_printf("Imprimo en decimal %u\n", f);
 	
 		
 	

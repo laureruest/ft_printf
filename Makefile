@@ -16,11 +16,8 @@ LIB_NAMES = libft
 SRC_FILES = ft_printf.c
 #DEBUGGING FLAGS
 CC_DEBUF_FLAGS = -g -fsanitize=address
-
-
-
-
-
+#
+#
 #MAKE MACRO VARIABLES FOR MAKEFILE WORKING
 SRC_DIR = src
 OBJ_DIR = obj
@@ -54,6 +51,20 @@ $(LIB_NAMES:=*.h) :
 
 $(OBJ_DIR).%o : $(SRC_DIR).%c
 	$(CC) $(CC_FLAGS) $(CC_DEBUG_FLAGS) $@ $<
+
+clean : 
+	@echo Cleaning Oject Files
+	@rm **/*.o
+
+fclean : clean
+	@echo Cleaning all objects, executables and libraries
+	@rm $(NAME)
+	@rm **/*.a
+
+re : fclean all
+	
+
+# FIN DE MAKE
 
 
 

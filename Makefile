@@ -6,13 +6,14 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/09 09:38:20 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/10 11:20:28 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 #MACRO VARIABLES DEFINITION FOR FILE INCLUSION
 LIB_NAMES = libft
+# *************INSERT HERE IDENTIFICATION FOR SOURCE FILES******************** #
 SRC_FILES = ft_printf.c
 #DEBUGGING FLAGS
 CC_DEBUF_FLAGS = -g -fsanitize=address
@@ -54,23 +55,14 @@ $(OBJ_DIR).%o : $(SRC_DIR).%c
 
 clean : 
 	@echo Cleaning Oject Files
-	@rm **/*.o
+	@rm -f **/*.o
 
 fclean : clean
 	@echo Cleaning all objects, executables and libraries
-	@rm $(NAME)
-	@rm **/*.a
+	@rm -f $(NAME)
+	@rm -f **/*.a
 
 re : fclean all
 	
 
 # FIN DE MAKE
-
-
-
-
-	
-
-
-
-

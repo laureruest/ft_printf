@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lruiz-es <lruiz-es@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 20:33:53 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/10 09:39:06 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/10 11:18:55 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
-int	ft_printf(const char *, ...);
+int	ft_printf(const char *s_format, ...);
 # define FT_PRINTF_H
 #endif
 /*

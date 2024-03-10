@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 20:33:53 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/10 11:18:55 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/10 17:40:50 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ DESCRIPTION
        The conversion specifiers and their meanings are:
 
        d or i   The int argument is converted to signed decimal notation.
-              The precision precision is 1.
+              The precision is 1.
 
        u, x, X
               The unsigned int argument is converted to unsigned decimal (u),

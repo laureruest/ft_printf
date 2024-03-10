@@ -6,7 +6,7 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/10 11:20:28 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/10 17:40:13 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 #MACRO VARIABLES DEFINITION FOR FILE INCLUSION
 LIB_NAMES = libft
 # *************INSERT HERE IDENTIFICATION FOR SOURCE FILES******************** #
-SRC_FILES = ft_printf.c
+SRC_FILES = ft_printf.c p_p_args.c
 #DEBUGGING FLAGS
 CC_DEBUF_FLAGS = -g -fsanitize=address
 #
@@ -50,8 +50,8 @@ $(LIB_NAMES:=*.a) :
 $(LIB_NAMES:=*.h) : 
 	@cp $(LOCAL_LIB_PATH)/$(@:.h=)/$@ $@
 
-$(OBJ_DIR).%o : $(SRC_DIR).%c
-	$(CC) $(CC_FLAGS) $(CC_DEBUG_FLAGS) $@ $<
+$(OBJ_DIR).%o : $(SRC_DIR).%c libft.a
+	$(CC) $(CC_FLAGS) $(CC_DEBUG_FLAGS) $@ $< $(LIB_NAMES:=*.a)
 
 clean : 
 	@echo Cleaning Oject Files
@@ -64,5 +64,8 @@ fclean : clean
 
 re : fclean all
 	
+
+obj/ft_printf.o : src/ft_printf.c obj/p_p_args.o $(NAME:.a=.h) $(LIB_NAMES:=*.a) $(LIB_NAMES:=*.h)
+	$(CC) $(CC_FLAGS) $(CC_DEBUF_FLAGS) $@ src/ft_printf.c src/p_p_args.c $(LIB_NAMES:=*.a)
 
 # FIN DE MAKE

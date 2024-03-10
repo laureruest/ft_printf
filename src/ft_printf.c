@@ -6,13 +6,15 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:01:02 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/10 16:21:11 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/10 18:24:06 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "libft.h"
 #include <stdlib.h>
+
+void	p_p_args(char *f, va_list l_args, int *count);
 
 static void	lr_ppc(int *count, size_t *idx)
 {
@@ -30,9 +32,10 @@ static void	lr_putchar(char toprn, int *count)
 int	ft_printf(const char *s_format, ...)
 {
 	va_list	ptr;
-	va_list l_arg_snding;
+	va_list	l_arg_snding;
 	int		count;
 	size_t	f_idx;
+	void	dnull;
 
 	count = 0;
 	f_idx = 0;
@@ -47,7 +50,8 @@ int	ft_printf(const char *s_format, ...)
 		{
 			va_copy(l_arg_snding, ptr);
 			p_p_args(s_format[f_idx++], l_arg_snding, count);
-			va_arg(ptr, void);
+			va_end(l_arg_snding);
+			dnull = va_arg(ptr, void);
 		}
 	}
 	va_end(ptr);

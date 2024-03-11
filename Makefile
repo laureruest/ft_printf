@@ -6,7 +6,7 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/11 19:54:33 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/11 21:25:30 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,23 +33,25 @@ CC = cc
 CC_FLAGS = -Wall -Werror -Wextra -c
 LINKER = ar
 LINKER_FLAGS = -r
-.PHONY = all clean fclean re
+.PHONY = all clean fclean re putlibraries
 all : $(NAME)
 	
 
-$(NAME) : $(LIB_NAMES:=.a) $(LIB_NAMES:=.h) $(NAME:%.a=%.h) $(OBJ)
-	$(LINKER) $(LINKER_FLAGS) $@ $?
+$(NAME) : putlibraries $(OBJ)
+	$(LINKER) $(LINKER_FLAGS) $@ $<
 
-$(LIB_NAMES:=.a) : 
+$(LIB_NAMES:=.a) : $(LIB_NAMES:=.h) 
 	@cd $(LOCAL_LIB_PATH)/$*; echo Compiling LIBRARY: $@ .............; 	make re
-	@cp $(LOCAL_LIB_PATH)/$*/$@ $@
-
+	@cp $(LOCAL_LIB_PATH)/$*/$@ ./$@
 $(LIB_NAMES:=.h) : 
-	@cp $(LOCAL_LIB_PATH)/$*/$@ $@
 	@cp $(LOCAL_LIB_PATH)/$*/$@ $(SRC_DIR)/$@
+	@cp $(LOCAL_LIB_PATH)/$*/$@ $@
 
-$(NAME:%.a=%.h) :
-	@cp $(HDR_DIR)/* .
+putlibraries : $(NAME:%.a=%.h) $(LIB_NAMES:=.a)
+	
+
+$(NAME:%.a=%.h) : $(HDR)
+	@cp $< $@
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	$(CC) $(CC_FLAGS) $(CC_DEBUG_FLAGS) -o $@ $<
@@ -63,12 +65,13 @@ fclean : clean
 	@rm -f $(NAME)
 	@find . -name "*.a" -delete
 	@rm -f *.h
+	@rm -f $(SRC_DIR)/*.h
 
 re : fclean all
 	
 
-obj/ft_printf.o : src/ft_printf.c obj/p_p_args.o $(NAME:%.a=%.h) $(LIB_NAMES:%=%.a) $(LIB_NAMES:%=%.h)
+obj/ft_printf.o : src/ft_printf.c obj/p_p_args.o $(NAME:%.a=%.h) $(LIB_NAMES:=.h)
 	echo estoy probando esta
-	$(CC) $(CC_FLAGS) $(CC_DEBUF_FLAGS) src/ft_printf.c obj/p_p_args.o $(LIB_NAMES:%=%.a)
+	$(CC) $(CC_FLAGS) $(CC_DEBUF_FLAGS) -o obj/ft_printf.o src/ft_printf.c obj/p_p_args.o
 
 # FIN DE MAKE

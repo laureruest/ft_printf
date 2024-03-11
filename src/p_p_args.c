@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 17:16:24 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/10 18:23:59 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/11 20:01:23 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void	p_p_args(char *f, va_list l_args, int *count)
 	{
 		ch = va_arg(l_args, unsigned int);
 		ft_putchar_fd(ch, 1);
-		count++;
+		*count++;
 	}
 	else if (*f == 's')
 	{
-		str = va_arg(l_args, *char);
+		str = va_arg(l_args, char*);
 		ft_putstr_fd(str, 1);
 		*count += ft_strlen(str);
 	}

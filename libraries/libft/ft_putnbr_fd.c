@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 13:01:48 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/02/09 13:13:15 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/17 17:10:43 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	ins(char *ptr, int n, size_t cursor, unsigned short int exp)
 		cursor ++;
 	}
 	ptr[cursor] = conv_dig(n, exp);
-		cursor++;
+	cursor++;
 	if (exp == 0)
 	{
 		ptr[cursor] = '\0';

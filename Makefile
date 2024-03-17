@@ -6,7 +6,7 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/17 14:24:39 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/17 18:15:20 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,8 @@ NAME = libftprintf.a
 #MACRO VARIABLES DEFINITION FOR FILE INCLUSION
 LIB_NAMES = libft
 # *************INSERT HERE IDENTIFICATION FOR SOURCE FILES******************** #
-SRC_FILES = p_p_args.c ft_printf.c
-HDR_FILES = libftprintf.h
-OBJ_FILES_LIBRARIES = ft_put_fd.o
+SRC_FILES = lr_prints.c ft_printf.c
+OBJ_FILES_LIBRARIES = ft_put_fd.o ft_strlen.o ft_ullitohex.o
 #
 #
 #DEBUGGING FLAGS
@@ -25,7 +24,6 @@ CC_DEBUF_FLAGS = -g -fsanitize=address
 #
 #MAKE MACRO VARIABLES FOR MAKEFILE WORKING
 SRC_DIR = src
-HDR_DIR = .
 OBJ_DIR = obj
 OBJ_LIBRARIES_DIR = lib
 HEADERS_LIBRARIES_DIR = include
@@ -71,15 +69,14 @@ fclean : clean
 	@echo Cleaning all objects, executables and libraries
 	@rm -f $(NAME)
 	@find . -name "*.a" -delete
-	@rm -f *.h
 	@rm -f include/*
 	@rm -f lib/*
 
 re : fclean all
 	
 
-obj/ft_printf.o : src/ft_printf.c obj/p_p_args.o $(NAME:%.a=%.h) lib/$(LIB_NAMES:=.a) include/$(LIB_NAMES:=.h)
+obj/ft_printf.o : src/ft_printf.c obj/lr_prints.o $(NAME:%.a=%.h) lib/$(LIB_NAMES:=.a) include/$(LIB_NAMES:=.h)
 	@echo estoy probando esta
-	$(CC) $(CC_FLAGS) $(CC_DEBUF_FLAGS) -o obj/ft_printf.o src/ft_printf.c obj/p_p_args.o
+	$(CC) $(CC_FLAGS) $(CC_DEBUF_FLAGS) -o obj/ft_printf.o src/ft_printf.c
 
 # FIN DE MAKE

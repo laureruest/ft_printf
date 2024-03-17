@@ -6,10 +6,9 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:18:18 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/14 20:38:38 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/17 18:01:12 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <stdlib.h>
 
@@ -63,7 +62,7 @@ static int	c_wg(unsigned long long int n, int exp)
 // and starts
 char	*ft_ullitohex(unsigned long long int n)
 {
-	int	wg;
+	int		wg;
 	char	*tor;
 	size_t	l;
 

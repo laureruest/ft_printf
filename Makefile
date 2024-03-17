@@ -6,7 +6,7 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/17 14:20:08 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/17 14:24:39 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ_FILES_LIBRARIES = ft_put_fd.o
 #DEBUGGING FLAGS
 CC_DEBUF_FLAGS = -g -fsanitize=address
 #
-	#
+#
 #MAKE MACRO VARIABLES FOR MAKEFILE WORKING
 SRC_DIR = src
 HDR_DIR = .

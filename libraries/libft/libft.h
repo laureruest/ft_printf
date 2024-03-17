@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:15:38 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/02 12:16:19 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/14 20:21:24 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
+char	*ft_ullitohex(unsigned long long int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putchar_fd(char c, int fd);
@@ -937,7 +938,33 @@ Descripción:    Reserva (utilizando malloc(3)),  genera una string que represen
 				vos tienen que gestionarse.
 
 
-*******************************************************************************
+******************************************************************************* 
+                                                                                
+FT_ULLITOHEX             LIBFT C FUNCTIONS LIBRARY                 FT_ULLITOHEX         
+
+
+Library: Libft C Library (libft.h, libft.a)                                     
+                                                                                
+Usage: include "libft.h"                                                        
+                                                                                
+Nombre de función: ft_ullitohex                                                      
+                                                                                 
+Prototipo:  char *ft_ullitohex(unsigned long long int n);                    
+                                                   
+                                                      
+                                                                               
+Parámetros:             n: el entero sin signo a convertir                              
+                                                                                 
+Valor devuelto: La string que represente el numero en base 16.                           
+	               NULL si falla la reserva de memoria.                            
+                                                                        
+Funciones autorizadas: malloc                                                   
+                                                                               
+Descripción:    Reserva (utilizando malloc(3)),  genera una string que represen-
+                te el valor entero sin signo largo largo, recibido como argumen-
+		to.                                                              
+                                                                              
+***************************************************************************
 
 FT_STRMAPI             LIBFT C FUNCTIONS LIBRARY                   FT_STRMAPI
 

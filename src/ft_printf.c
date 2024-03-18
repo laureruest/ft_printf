@@ -6,18 +6,17 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:01:02 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/17 19:24:43 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/18 21:50:27 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "libft.h"
 #include <stdlib.h>
-
-void	lr_print(char *f, int num, int *count);
-void	lr_pruint(char *f, int num, int *count);
-void	lr_prstr(char *s, int *count);
-void	lr_prptr(void *ptr, int *count);
+static void	lr_print(char *f, int num, int *count);
+static void	lr_pruint(char *f, int num, int *count);
+static void	lr_prstr(char *s, int *count);
+static void	lr_prptr(void *ptr, int *count);
 
 static void	lr_ppc(int *count, size_t *idx)
 {
@@ -52,6 +51,7 @@ static void	ac_prn(char *f, va_list l_args, int *count)
 	{
 		str = va_arg(l_args, char *);
 		lr_prstr(str, count);
+		free(str);
 	}
 	if (*f == 'p')
 	{

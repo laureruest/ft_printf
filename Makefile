@@ -6,7 +6,7 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/17 18:15:20 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/18 21:39:24 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,12 +45,13 @@ $(NAME) : $(OBJ_LIBRARIES) $(OBJ)
 	$(LINKER) $(LINKER_FLAGS) $@ $<
 
 $(OBJ_LIBRARIES_DIR)/$(LIB_NAMES:=.a) : $(HEADERS_LIBRARIES_DIR)/$(LIB_NAMES:=.h)
+	mkdir $(OBJ_LIBRARIES_DIR)
 	@cd $(LOCAL_LIB_PATH)/$(*F); echo Compiling LIBRARY: $(*F).........; make re
 	@cp $(LOCAL_LIB_PATH)/$(*F)/$(@F) $@
 
 $(HEADERS_LIBRARIES_DIR)/$(LIB_NAMES:=.h) : 
+	mkdir $(HEADERS_LIBRARIES_DIR)
 	@cp $(LOCAL_LIB_PATH)/$(*F)/$(@F) $@
-
 
 $(NAME:%.a=%.h) : $(HDR)
 	@cp $< $@
@@ -77,6 +78,6 @@ re : fclean all
 
 obj/ft_printf.o : src/ft_printf.c obj/lr_prints.o $(NAME:%.a=%.h) lib/$(LIB_NAMES:=.a) include/$(LIB_NAMES:=.h)
 	@echo estoy probando esta
-	$(CC) $(CC_FLAGS) $(CC_DEBUF_FLAGS) -o obj/ft_printf.o src/ft_printf.c
+	$(CC) $(CC_FLAGS) $(CC_DEBUG_FLAGS) -o obj/ft_printf.o src/ft_printf.c
 
 # FIN DE MAKE

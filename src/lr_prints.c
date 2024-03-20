@@ -6,10 +6,11 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 17:16:24 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/20 18:35:22 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:51:03 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
-/*************************************************************************** */
+/* ************************************************************************** */
 
+#include <stdarg.h>
 #include "libft.h"
 
 void	lr_print(char *f, int num, int *count)
@@ -63,14 +64,15 @@ void	lr_prstr(char *s, int *count)
 	ft_putstr_fd(s, 1);
 }
 
-void	lr_prptr(void *ptr, int *count)
+void	lr_prptr(va_list args, int *count)
 {
 	unsigned long long int	lnum;
 	char					*str;
 
-	lnum = (unsigned long long int) ptr;
+	lnum = (unsigned long long int) va_arg(args, void *);
 	str = ft_ullitohex(lnum);
 	*count += ft_strlen(str);
 	ft_putstr_fd(str, 1);
 	free(str);
+	va_end(args);
 }

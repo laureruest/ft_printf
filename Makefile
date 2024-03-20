@@ -6,7 +6,7 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/20 18:32:24 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/20 21:22:40 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,12 +45,12 @@ $(NAME) : $(OBJ_LIBRARIES) $(OBJ)
 	$(LINKER) $(LINKER_FLAGS) $@ $?
 
 $(OBJ_LIBRARIES_DIR)/$(LIB_NAMES:=.a) : $(HEADERS_LIBRARIES_DIR)/$(LIB_NAMES:=.h)
-	if ![-d $(OBJ_LIBRARIES_DIR)]; then mkdir $(OBJ_LIBRARIES_DIR); fi
+	@if ! [ -d $(OBJ_LIBRARIES_DIR) ]; then mkdir $(OBJ_LIBRARIES_DIR); fi
 	@cd $(LOCAL_LIB_PATH)/$(*F); echo Compiling LIBRARY: $(*F).........; make re
 	@cp $(LOCAL_LIB_PATH)/$(*F)/$(@F) $@
 
 $(HEADERS_LIBRARIES_DIR)/$(LIB_NAMES:=.h) : 
-	if ![-d $(HEADERS_LIBRARIES_DIR)]; then mkdir $(HEADERS_LIBRARIES_DIR); fi
+	@if ! [ -d $(HEADERS_LIBRARIES_DIR) ]; then mkdir $(HEADERS_LIBRARIES_DIR); fi
 	@cp $(LOCAL_LIB_PATH)/$(*F)/$(@F) $@
 
 $(NAME:%.a=%.h) : $(HDR)

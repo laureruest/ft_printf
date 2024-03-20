@@ -6,13 +6,14 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:01:02 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/20 18:35:03 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:52:26 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "libft.h"
 #include <stdlib.h>
+
 void	lr_print(char *f, int num, int *count);
 void	lr_pruint(char *f, int num, int *count);
 void	lr_prstr(char *s, int *count);
@@ -35,7 +36,6 @@ static void	ac_prn(char *f, va_list l_args, int *count)
 {
 	char	*str;
 	int		num;
-	void	*ptr;
 
 	if ((*f == 'i') || (*f == 'd') || (*f == 'c'))
 	{
@@ -54,10 +54,7 @@ static void	ac_prn(char *f, va_list l_args, int *count)
 		free(str);
 	}
 	if (*f == 'p')
-	{
-		ptr = va_arg(l_args, void *);
-		lr_prptr(ptr, count);
-	}
+		lr_prptr(l_args, count);
 	va_end(l_args);
 }
 

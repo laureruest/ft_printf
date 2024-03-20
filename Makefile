@@ -6,7 +6,7 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/20 21:22:40 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/20 21:50:12 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libftprintf.a
 LIB_NAMES = libft
 # *************INSERT HERE IDENTIFICATION FOR SOURCE FILES******************** #
 SRC_FILES = lr_prints.c ft_printf.c
-OBJ_FILES_LIBRARIES = ft_put_fd.o ft_strlen.o ft_ullitohex.o
+OBJ_FILES_LIBRARIES = ft_put_fd.o ft_strlen.o ft_ullitohex.o ft_toupper.o ft_itoa.o
 #
 #
 #DEBUGGING FLAGS

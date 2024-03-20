@@ -6,17 +6,17 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:01:02 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/18 21:50:27 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:35:03 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "libft.h"
 #include <stdlib.h>
-static void	lr_print(char *f, int num, int *count);
-static void	lr_pruint(char *f, int num, int *count);
-static void	lr_prstr(char *s, int *count);
-static void	lr_prptr(void *ptr, int *count);
+void	lr_print(char *f, int num, int *count);
+void	lr_pruint(char *f, int num, int *count);
+void	lr_prstr(char *s, int *count);
+void	lr_prptr(void *ptr, int *count);
 
 static void	lr_ppc(int *count, size_t *idx)
 {
@@ -83,7 +83,7 @@ int	ft_printf(const char *s_format, ...)
 		{
 			va_copy(l_arg_snding, ptr);
 			ac_prn(&s[f_idx++], l_arg_snding, &count);
-			dnull = va_arg(ptr, void);
+			*s = va_arg(ptr, int);
 		}
 	}
 	va_end(ptr);

@@ -6,13 +6,13 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 17:16:24 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/18 21:50:34 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:35:22 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/*************************************************************************** */
 
 #include "libft.h"
 
-static void	lr_print(char *f, int num, int *count)
+void	lr_print(char *f, int num, int *count)
 {
 	char	*str;
 
@@ -30,7 +30,7 @@ static void	lr_print(char *f, int num, int *count)
 	}
 }
 
-static void	lr_pruint(char *f, int num, int *count)
+void	lr_pruint(char *f, int num, int *count)
 {
 	unsigned long long int	lnum;
 	char					*str;
@@ -57,13 +57,13 @@ static void	lr_pruint(char *f, int num, int *count)
 	free(str);
 }
 
-static void	lr_prstr(char *s, int *count)
+void	lr_prstr(char *s, int *count)
 {
 	*count += ft_strlen(s);
 	ft_putstr_fd(s, 1);
 }
 
-static void	lr_prptr(void *ptr, int *count)
+void	lr_prptr(void *ptr, int *count)
 {
 	unsigned long long int	lnum;
 	char					*str;

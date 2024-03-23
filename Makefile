@@ -6,7 +6,7 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/23 14:06:15 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/23 16:21:19 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ $(NAME:%.a=%.h) : $(HDR)
 	@cp $< $@
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
+	@if ! [ -d $(OBJ_DIR) ]; then mkdir $(OBJ_DIR); fi
 	$(CC) $(CC_FLAGS) $(CC_DEBUG_FLAGS) -o $@ $<
 
 $(OBJ_LIBRARIES) : $(OBJ_LIBRARIES_DIR)/$(LIB_NAMES:=.a)

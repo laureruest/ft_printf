@@ -6,7 +6,7 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/23 11:07:06 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/23 14:06:15 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 #MACRO VARIABLES DEFINITION FOR FILE INCLUSION
 LIB_NAMES = libft
 # *************INSERT HERE IDENTIFICATION FOR SOURCE FILES******************** #
-SRC_FILES = lr_prints.c ft_printf.c
+SRC_FILES = lr_prints.c ft_printf.c uitoa.c uitohex.c
 OBJ_FILES_LIBRARIES = ft_put_fd.o ft_strlen.o ft_ullitohex.o ft_toupper.o ft_itoa.o
 #
 #
@@ -76,7 +76,10 @@ fclean : clean
 re : fclean all
 	
 
-obj/ft_printf.o : src/ft_printf.c obj/lr_prints.o $(NAME:%.a=%.h) lib/$(LIB_NAMES:=.a) include/$(LIB_NAMES:=.h)
+obj/ft_printf.o : src/ft_printf.c obj/lr_prints.o $(NAME:%.a=%.h) $(OBJ_LIBRARIES_DIR)/$(LIB_NAMES:=.a) $(HEADERS_LIBRARIES_DIR)/$(LIB_NAMES:=.h)
 	$(CC) $(CC_FLAGS) $(CC_DEBUG_FLAGS) -o obj/ft_printf.o src/ft_printf.c
+
+obj/lr_prints.o : src/lr_prints.c obj/uitoa.o obj/uitohex.o $(NAME:%.a=%.h) $(OBJ_LIBRARIES_DIR)/$(LIB_NAMES:=.a) $(HEADERS_LIBRARIES_DIR)/$(LIB_NAMES:=.h)
+	$(CC) $(CC_FLAGS) $(CC_DEBUG_FLAGS) -o obj/lr_prints.o src/lr_prints.c
 
 # FIN DE MAKE

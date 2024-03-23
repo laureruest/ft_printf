@@ -6,7 +6,7 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/20 21:50:12 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/23 11:07:06 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 HDR = $(addprefix $(HDR_DIR)/, $(HDR_FILES))
 OBJ_LIBRARIES = $(addprefix $(OBJ_LIBRARIES_DIR)/, $(OBJ_FILES_LIBRARIES))
 CC = cc
-CC_FLAGS = -Wall -Werror -Wextra -I include -c
+CC_FLAGS = -Wall -Werror -Wextra -I $(HEADERS_LIBRARIES_DIR) -c
 LINKER = ar
 LINKER_FLAGS = -r
 .PHONY = all clean fclean re

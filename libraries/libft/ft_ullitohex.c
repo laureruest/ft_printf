@@ -6,13 +6,13 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:18:18 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/17 18:01:12 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/23 10:00:33 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static int	my_pow(unsigned long long int b, int exp)
+static unsigned long long int	my_pow(unsigned long long int b, int exp)
 {
 	if (exp == 0)
 		return (1);
@@ -24,15 +24,15 @@ static int	my_pow(unsigned long long int b, int exp)
 
 static char	conv_dig(unsigned long long int n, int wg)
 {
-	int	dig;
+	unsigned long long int	dig;
 
 	dig = n / (my_pow(16, wg));
 	if (dig < 10)
 		dig += '0' - '\0';
-	if (dig > 9)
+	else if (dig > 9)
 		dig += 'a' - '\0' - 10;
 	return (dig);
-}
+	}
 
 // redim ptr data size & fill string
 static void	ins(char *ptr, unsigned long long int n, size_t cursor, int exp)

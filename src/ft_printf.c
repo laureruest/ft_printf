@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:01:02 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/20 22:02:57 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/23 10:56:32 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ static void	lr_putchar(char toprn, int *count)
 
 static void	ac_prn(char *f, va_list l_args, int *count)
 {
-	char	*str;
-	int		num;
+	char			*str;
+	int				num;
+	unsigned int	unum;
 
 	if ((*f == 'i') || (*f == 'd') || (*f == 'c'))
 	{
@@ -44,8 +45,8 @@ static void	ac_prn(char *f, va_list l_args, int *count)
 	}
 	if ((*f == 'u') || (*f == 'x') || (*f == 'X'))
 	{
-		num = va_arg(l_args, unsigned int);
-		lr_pruint(f, num, count);
+		unum = va_arg(l_args, unsigned int);
+		lr_pruint(f, unum, count);
 	}
 	if (*f == 's')
 	{
@@ -54,13 +55,11 @@ static void	ac_prn(char *f, va_list l_args, int *count)
 	}
 	if (*f == 'p')
 		lr_prptr(l_args, count);
-	va_end(l_args);
 }
 
 int	ft_printf(const char *s_format, ...)
 {
 	va_list	ptr;
-	va_list	l_arg_snding;
 	int		count;
 	size_t	f_idx;
 	char	*s;
@@ -76,11 +75,7 @@ int	ft_printf(const char *s_format, ...)
 		else if ((s[f_idx] == '%') && (s[f_idx + 1] == '%'))
 			lr_ppc(&count, &f_idx);
 		else if (s[f_idx++] == '%')
-		{
-			va_copy(l_arg_snding, ptr);
-			ac_prn(&s[f_idx++], l_arg_snding, &count);
-			*s = va_arg(ptr, int);
-		}
+			ac_prn(&s[f_idx++], ptr, &count);
 	}
 	va_end(ptr);
 	return (count);

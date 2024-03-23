@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 17:16:24 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/20 18:51:03 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/23 10:56:29 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	lr_print(char *f, int num, int *count)
 
 void	lr_pruint(char *f, int num, int *count)
 {
-	unsigned long long int	lnum;
 	char					*str;
 	int						idx;
 
@@ -42,8 +41,7 @@ void	lr_pruint(char *f, int num, int *count)
 		lr_print(f, num, count);
 		return ;
 	}
-	lnum = (unsigned long long int) num;
-	str = ft_ullitohex(lnum);
+	str = ft_ullitohex(num);
 	if (*f == 'X')
 	{
 		idx = 0;
@@ -74,5 +72,4 @@ void	lr_prptr(va_list args, int *count)
 	*count += ft_strlen(str);
 	ft_putstr_fd(str, 1);
 	free(str);
-	va_end(args);
 }

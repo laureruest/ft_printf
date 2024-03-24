@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:01:02 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/24 09:28:10 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/24 09:42:52 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ static void	ac_prn(char *f, va_list l_args, int *count)
 	if (*f == 's')
 	{
 		str = va_arg(l_args, char *);
-		if (str)
-			lr_prstr(str, count);
+		lr_prstr(str, count);
 	}
 	if (*f == 'p')
 		lr_prptr(l_args, count);

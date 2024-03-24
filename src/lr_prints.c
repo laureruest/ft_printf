@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 17:16:24 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/23 14:07:26 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/24 16:55:52 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,16 @@ void	lr_pruint(char *f, int num, int *count)
 
 void	lr_prstr(char *s, int *count)
 {
-	*count += ft_strlen(s);
-	ft_putstr_fd(s, 1);
+	if (s)
+	{
+		*count += ft_strlen(s);
+		ft_putstr_fd(s, 1);
+	}
+	else
+	{
+		*count += 6;
+		ft_putstr_fd("(null)", 1);
+	}
 }
 
 void	lr_prptr(va_list args, int *count)

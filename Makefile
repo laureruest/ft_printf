@@ -6,7 +6,7 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/23 16:21:19 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/24 09:12:31 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,8 +53,8 @@ $(HEADERS_LIBRARIES_DIR)/$(LIB_NAMES:=.h) :
 	@if ! [ -d $(HEADERS_LIBRARIES_DIR) ]; then mkdir $(HEADERS_LIBRARIES_DIR); fi
 	@cp $(LOCAL_LIB_PATH)/$(*F)/$(@F) $@
 
-$(NAME:%.a=%.h) : $(HDR)
-	@cp $< $@
+ft_printf.h : 
+	@echo "Te has borrado el archivo ft_printf.h, recuperatelo";
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	@if ! [ -d $(OBJ_DIR) ]; then mkdir $(OBJ_DIR); fi

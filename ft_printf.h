@@ -6,14 +6,14 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 20:33:53 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/17 17:04:28 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/24 08:53:24 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
 
 int	ft_printf(const char *s_format, ...);
-# define LIBFTPRINTF_H
+# define FT_PRINTF_H
 #endif
 /*
 DESCRIPTION

@@ -6,11 +6,12 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/24 09:12:31 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/24 09:19:17 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+HEADER_NAME = ft_printf.h
 #MACRO VARIABLES DEFINITION FOR FILE INCLUSION
 LIB_NAMES = libft
 # *************INSERT HERE IDENTIFICATION FOR SOURCE FILES******************** #
@@ -53,7 +54,7 @@ $(HEADERS_LIBRARIES_DIR)/$(LIB_NAMES:=.h) :
 	@if ! [ -d $(HEADERS_LIBRARIES_DIR) ]; then mkdir $(HEADERS_LIBRARIES_DIR); fi
 	@cp $(LOCAL_LIB_PATH)/$(*F)/$(@F) $@
 
-ft_printf.h : 
+$(HEADER_NAME) : 
 	@echo "Te has borrado el archivo ft_printf.h, recuperatelo";
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
@@ -77,10 +78,10 @@ fclean : clean
 re : fclean all
 	
 
-obj/ft_printf.o : src/ft_printf.c obj/lr_prints.o $(NAME:%.a=%.h) $(OBJ_LIBRARIES_DIR)/$(LIB_NAMES:=.a) $(HEADERS_LIBRARIES_DIR)/$(LIB_NAMES:=.h)
+obj/ft_printf.o : src/ft_printf.c obj/lr_prints.o $(HEADER_NAME) $(OBJ_LIBRARIES_DIR)/$(LIB_NAMES:=.a) $(HEADERS_LIBRARIES_DIR)/$(LIB_NAMES:=.h)
 	$(CC) $(CC_FLAGS) $(CC_DEBUG_FLAGS) -o obj/ft_printf.o src/ft_printf.c
 
-obj/lr_prints.o : src/lr_prints.c obj/uitoa.o obj/uitohex.o $(NAME:%.a=%.h) $(OBJ_LIBRARIES_DIR)/$(LIB_NAMES:=.a) $(HEADERS_LIBRARIES_DIR)/$(LIB_NAMES:=.h)
+obj/lr_prints.o : src/lr_prints.c obj/uitoa.o obj/uitohex.o $(HEADER_NAME) $(OBJ_LIBRARIES_DIR)/$(LIB_NAMES:=.a) $(HEADERS_LIBRARIES_DIR)/$(LIB_NAMES:=.h)
 	$(CC) $(CC_FLAGS) $(CC_DEBUG_FLAGS) -o obj/lr_prints.o src/lr_prints.c
 
 # FIN DE MAKE

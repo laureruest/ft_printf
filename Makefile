@@ -6,7 +6,7 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/24 09:19:17 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/24 10:27:16 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ_FILES_LIBRARIES = ft_put_fd.o ft_strlen.o ft_ullitohex.o ft_toupper.o ft_ito
 #
 #
 #DEBUGGING FLAGS
-CC_DEBUF_FLAGS = -g -fsanitize=address
+#CC_DEBUF_FLAGS = -g -fsanitize=address
 #
 #
 #MAKE MACRO VARIABLES FOR MAKEFILE WORKING

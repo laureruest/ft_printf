@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 12:15:14 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/30 12:56:02 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/30 13:20:07 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int	c_wg(unsigned long long int n, int exp)
 	return (c_wg(n / 16, exp));
 }
 
-int	ullitohexp(char *f, unsigned long long int n)
+int	ullitop(char *f, unsigned long long int n)
 {
 	int	toret;
 	int	aux;

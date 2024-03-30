@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:01:02 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/30 13:00:13 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/30 13:27:00 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ static int	lr_ppc(int count, size_t *idx)
 	int	rflag;
 	
 	rflag = write(1, "%", 1 ) ;
+	*idx += 2;
 	if (rflag < 0)
 		return (rflag);
 	else
 		return (count + rflag);
-	*idx += 2;
 }
 
 static int	lr_putchar(char *toprn, int count)

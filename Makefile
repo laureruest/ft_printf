@@ -6,7 +6,7 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/30 12:50:13 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/30 13:06:13 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 HEADER_NAME = ft_printf.h
 #MACRO VARIABLES DEFINITION FOR FILE INCLUSION
 # *************INSERT HERE IDENTIFICATION FOR SOURCE FILES******************** #
-SRC_FILES = lr_prints.c ft_printf.c uitoa.c uitohex.c 
+SRC_FILES = lr_prints.c ft_printf.c itop.c ullitop.c
 #
 #
 #DEBUGGING FLAGS
@@ -28,7 +28,7 @@ OBJ_FILES = $(SRC_FILES:%.c=%.o)
 OBJ = $(addprefix $(OBJ_DIR)/, $(OBJ_FILES))
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 CC = cc
-CC_FLAGS = -Wall -Werror -Wextra -I $(HEADERS_LIBRARIES_DIR) -c
+CC_FLAGS = -Wall -Werror -Wextra -c
 LINKER = ar
 LINKER_FLAGS = -r
 .PHONY = all clean fclean re
@@ -53,6 +53,7 @@ fclean : clean
 	@echo Cleaning all objects, executables and libraries
 	@rm -f $(NAME)
 	@find . -name "*.a" -delete
+	@rm -rf obj
 
 re : fclean all
 	
@@ -66,4 +67,4 @@ obj/lr_prints.o : src/lr_prints.c obj/itop.o obj/ullitop.o
 obj/itop.o : src/itop.c	obj/ullitop.o
 	$(CC) $(CC_FLAGS) $(CC_DEBUG_FLAGS) -o obj/itop.o src/itop.c
 
-	# FIN DE MAKE
+# FIN DE MAKE

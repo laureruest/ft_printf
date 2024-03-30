@@ -6,9 +6,11 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 12:15:14 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/30 12:50:19 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/30 12:56:02 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 static unsigned long long int	my_pow(unsigned long long int b, int exp)
 {
@@ -26,7 +28,7 @@ static int	pr_dig(char *f, unsigned long long int n, int wg)
 	int						prtd;
 	int						base;
 
-	if (*f = 'u')
+	if (*f == 'u')
 		base = 10;
 	else
 		base = 16;
@@ -38,13 +40,16 @@ static int	pr_dig(char *f, unsigned long long int n, int wg)
 		dig += 'a' - '\0' - 10;
 		if (*f == 'X')
 			dig -= 'a' - 'A';
+	}
 	prtd = write (1, (char *) &dig, 1);
 	return (prtd);
 }
 
 static int	pr(char *f, unsigned long long int n, int exp, int acum)
 {
-   	aux = pr_dig(f, n, exp);
+   	int	aux;
+	
+	aux = pr_dig(f, n, exp);
 	if (aux < 0)
 		return (aux);
 	else

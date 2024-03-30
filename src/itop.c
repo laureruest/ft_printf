@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 12:18:38 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/30 12:50:26 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/30 12:57:05 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int	itop(int n)
 	if (n < 0)
 	{
 		toret = write(1, "-", 1);
-		lnum = (unsigned long long int) (-num);
+		lnum = (unsigned long long int) (-n);
 	}
 	if (n >=0)
-		lnum = (unsigned long long int) num;
+		lnum = (unsigned long long int) n;
 	if (toret < 0)
 		return (toret);
 	aux = ullitop("u", lnum);

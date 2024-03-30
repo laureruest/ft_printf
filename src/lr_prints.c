@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 17:16:24 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/30 12:50:32 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/30 12:58:27 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	ullitop(char *f, unsigned long long int n);
 int	itop(int num);
 
-int	strlen(char *s)
+static int	lr_strlen(char *s)
 {
 	int	idx;
 	int	toret;
@@ -62,7 +62,7 @@ int	lr_prstr(char *s, int count)
 	int	toret;
 
 	if (s)
-		toret = write(1, s, strlen(s));
+		toret = write(1, s, lr_strlen(s));
 	else
 		toret = write(1, "(null)", 6);
 	if (toret < 0)

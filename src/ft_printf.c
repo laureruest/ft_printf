@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:01:02 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/30 12:50:36 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/30 13:00:13 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int	lr_print(char *f, int num, int *count);
-int	lr_pruint(char *f, int num, int *count);
-int	lr_prstr(char *s, int *count);
-int	lr_prptr(void *ptr, int *count);
+int	lr_print(char *f, int num, int count);
+int	lr_pruint(char *f, int num, int count);
+int	lr_prstr(char *s, int count);
+int	lr_prptr(void *ptr, int count);
 
 static int	lr_ppc(int count, size_t *idx)
 {
@@ -65,6 +65,7 @@ static int	ac_prn(char *f, va_list l_args, int count)
 	}
 	if (*f == 'p')
 		return (lr_prptr(l_args, count));
+	return (0);
 }
 
 int	ft_printf(const char *s_format, ...)

@@ -1,16 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ullitohex.c                                     :+:      :+:    :+:   */
+/*   ullitop.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 19:18:18 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/23 12:07:48 by lruiz-es         ###   ########.fr       */
+/*   Created: 2024/03/30 12:15:14 by lruiz-es          #+#    #+#             */
+/*   Updated: 2024/03/30 12:50:19 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
 
 static unsigned long long int	my_pow(unsigned long long int b, int exp)
 {
@@ -22,34 +20,42 @@ static unsigned long long int	my_pow(unsigned long long int b, int exp)
 	return (b * my_pow(b, exp));
 }
 
-static char	conv_dig(unsigned long long int n, int wg)
+static int	pr_dig(char *f, unsigned long long int n, int wg)
 {
 	unsigned long long int	dig;
+	int						prtd;
+	int						base;
 
-	dig = n / (my_pow(16, wg));
+	if (*f = 'u')
+		base = 10;
+	else
+		base = 16;
+	dig = n / (my_pow(base, wg));
 	if (dig < 10)
 		dig += '0' - '\0';
 	else if (dig > 9)
+	{
 		dig += 'a' - '\0' - 10;
-	return (dig);
+		if (*f == 'X')
+			dig -= 'a' - 'A';
+	prtd = write (1, (char *) &dig, 1);
+	return (prtd);
 }
 
-// redim ptr data size & fill string
-static void	ins(char *ptr, unsigned long long int n, size_t cursor, int exp)
+static int	pr(char *f, unsigned long long int n, int exp, int acum)
 {
-	ptr[cursor] = conv_dig(n, exp);
-	cursor++;
+   	aux = pr_dig(f, n, exp);
+	if (aux < 0)
+		return (aux);
+	else
+		acum += aux;
 	if (exp == 0)
-	{
-		ptr[cursor] = '\0';
-		return ;
-	}
+		return (acum);
 	n %= my_pow(16, exp);
 	exp--;
-	ins(ptr, n, cursor, exp);
+	return (pr(f, n, exp, acum));
 }
 
-// compute the more significave's exponent for base_10 of ABS(n)
 static int	c_wg(unsigned long long int n, int exp)
 {
 	if (n < 16)
@@ -58,23 +64,18 @@ static int	c_wg(unsigned long long int n, int exp)
 	return (c_wg(n / 16, exp));
 }
 
-// put sing, count the size of work (calculatin wg, weight of digit more sig)
-// and starts
-char	*ft_ullitohex(unsigned long long int n)
+int	ullitohexp(char *f, unsigned long long int n)
 {
-	int		wg;
-	char	*tor;
-	size_t	l;
+	int	toret;
+	int	aux;
 
-	wg = c_wg(n, 0);
-	l = ((size_t) wg) + 4;
-	tor = malloc(l);
-	if (tor != NULL)
-	{
-		tor[0] = '0';
-		tor[1] = 'x';
-		l = 2;
-		ins(tor, n, l, wg);
-	}
-	return (tor);
+	toret = 0;
+	aux = 0;
+	if (*f == 'p')
+		aux = write(1, "0x", 2);
+	if (aux < 0)
+		return (aux);
+	toret += aux;
+	toret  = pr(f, n, c_wg(n, 0), toret);
+	return (toret);
 }

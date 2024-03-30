@@ -6,7 +6,7 @@
 #    By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/09 07:59:23 by lruiz-es          #+#    #+#              #
-#    Updated: 2024/03/30 10:54:10 by lruiz-es         ###   ########.fr        #
+#    Updated: 2024/03/30 12:50:13 by lruiz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,8 +53,6 @@ fclean : clean
 	@echo Cleaning all objects, executables and libraries
 	@rm -f $(NAME)
 	@find . -name "*.a" -delete
-	@rm -f include/*
-	@rm -f lib/*
 
 re : fclean all
 	
@@ -62,7 +60,10 @@ re : fclean all
 obj/ft_printf.o : src/ft_printf.c obj/lr_prints.o $(HEADER_NAME)
 	$(CC) $(CC_FLAGS) $(CC_DEBUG_FLAGS) -o obj/ft_printf.o src/ft_printf.c
 
-obj/lr_prints.o : src/lr_prints.c obj/uitoa.o obj/uitohex.o $(HEADER_NAME)
+obj/lr_prints.o : src/lr_prints.c obj/itop.o obj/ullitop.o
 	$(CC) $(CC_FLAGS) $(CC_DEBUG_FLAGS) -o obj/lr_prints.o src/lr_prints.c
 
-# FIN DE MAKE
+obj/itop.o : src/itop.c	obj/ullitop.o
+	$(CC) $(CC_FLAGS) $(CC_DEBUG_FLAGS) -o obj/itop.o src/itop.c
+
+	# FIN DE MAKE

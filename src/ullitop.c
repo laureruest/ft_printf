@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 12:15:14 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/31 08:45:56 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/31 09:34:15 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	pr_dig(char *f, unsigned long long int n, int wg)
 
 static int	pr(char *f, unsigned long long int n, int exp, int acum)
 {
-   	int	aux;
+	int				aux;
 	unsigned int	base;
 
 	if (*f == 'u')
@@ -68,8 +68,8 @@ static int	pr(char *f, unsigned long long int n, int exp, int acum)
 
 static int	c_wg(char *f, unsigned long long int n, int exp)
 {
-	unsigned int base;
-	
+	unsigned int	base;
+
 	if (*f == 'u')
 		base = 10;
 	else
@@ -77,7 +77,7 @@ static int	c_wg(char *f, unsigned long long int n, int exp)
 	if (n < base)
 		return (exp);
 	exp++;
-	return (c_wg(f, n /base , exp));
+	return (c_wg(f, n / base, exp));
 }
 
 int	ullitop(char *f, unsigned long long int n)
@@ -92,6 +92,6 @@ int	ullitop(char *f, unsigned long long int n)
 	if (aux < 0)
 		return (aux);
 	toret += aux;
-	toret  = pr(f, n, c_wg(f, n, 0), toret);
+	toret = pr(f, n, c_wg(f, n, 0), toret);
 	return (toret);
 }

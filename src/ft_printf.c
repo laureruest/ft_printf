@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:01:02 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/30 13:27:00 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/31 09:30:53 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	lr_prptr(void *ptr, int count);
 static int	lr_ppc(int count, size_t *idx)
 {
 	int	rflag;
-	
-	rflag = write(1, "%", 1 ) ;
+
+	rflag = write(1, "%", 1);
 	*idx += 2;
 	if (rflag < 0)
 		return (rflag);
@@ -34,7 +34,7 @@ static int	lr_ppc(int count, size_t *idx)
 static int	lr_putchar(char *toprn, int count)
 {
 	int	toret;
-	
+
 	toret = write(1, toprn, 1);
 	if (toret >= 0)
 		return (count + toret);
@@ -79,7 +79,7 @@ int	ft_printf(const char *s_format, ...)
 	count = 0;
 	f_idx = 0;
 	va_start(ptr, s_format);
-	while ((s[f_idx] != '\0') && (count >=0))
+	while ((s[f_idx] != '\0') && (count >= 0))
 	{
 		if (s[f_idx] != '%')
 			count = lr_putchar(&s[f_idx++], count);

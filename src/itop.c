@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 12:18:38 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/31 09:12:50 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/31 09:31:20 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	itop(int n)
 		tcvrt = -tcvrt;
 		lnum = (unsigned long long int) tcvrt;
 	}
-	if (n >=0)
+	if (n >= 0)
 		lnum = (unsigned long long int) n;
 	if (toret < 0)
 		return (toret);

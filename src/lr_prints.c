@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 17:16:24 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/30 12:58:27 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/31 09:32:10 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	lr_print(char *f, int num, int count)
 		toret = write(1, str, 1);
 	}
 	else
-	toret = itop(num);
+		toret = itop(num);
 	if (toret < 0)
 		return (toret);
 	else
@@ -74,7 +74,7 @@ int	lr_prstr(char *s, int count)
 int	lr_prptr(va_list args, int count)
 {
 	unsigned long long int	lnum;
-	int	toret;
+	int						toret;
 
 	lnum = (unsigned long long int) va_arg(args, void *);
 	toret = ullitop("p", lnum);

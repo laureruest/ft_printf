@@ -6,7 +6,7 @@
 /*   By: lruiz-es <lruiz-es@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 12:15:14 by lruiz-es          #+#    #+#             */
-/*   Updated: 2024/03/30 13:20:07 by lruiz-es         ###   ########.fr       */
+/*   Updated: 2024/03/31 08:45:56 by lruiz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	pr_dig(char *f, unsigned long long int n, int wg)
 {
 	unsigned long long int	dig;
 	int						prtd;
-	int						base;
+	unsigned int			base;
 
 	if (*f == 'u')
 		base = 10;
@@ -48,7 +48,12 @@ static int	pr_dig(char *f, unsigned long long int n, int wg)
 static int	pr(char *f, unsigned long long int n, int exp, int acum)
 {
    	int	aux;
-	
+	unsigned int	base;
+
+	if (*f == 'u')
+		base = 10;
+	else
+		base = 16;
 	aux = pr_dig(f, n, exp);
 	if (aux < 0)
 		return (aux);
@@ -56,17 +61,23 @@ static int	pr(char *f, unsigned long long int n, int exp, int acum)
 		acum += aux;
 	if (exp == 0)
 		return (acum);
-	n %= my_pow(16, exp);
+	n %= my_pow(base, exp);
 	exp--;
 	return (pr(f, n, exp, acum));
 }
 
-static int	c_wg(unsigned long long int n, int exp)
+static int	c_wg(char *f, unsigned long long int n, int exp)
 {
-	if (n < 16)
+	unsigned int base;
+	
+	if (*f == 'u')
+		base = 10;
+	else
+		base = 16;
+	if (n < base)
 		return (exp);
 	exp++;
-	return (c_wg(n / 16, exp));
+	return (c_wg(f, n /base , exp));
 }
 
 int	ullitop(char *f, unsigned long long int n)
@@ -81,6 +92,6 @@ int	ullitop(char *f, unsigned long long int n)
 	if (aux < 0)
 		return (aux);
 	toret += aux;
-	toret  = pr(f, n, c_wg(n, 0), toret);
+	toret  = pr(f, n, c_wg(f, n, 0), toret);
 	return (toret);
 }
